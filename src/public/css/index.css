@@ -84,3 +84,18 @@
   color: #fff;
   cursor: pointer;
 }
+
+
+/* 通常（PC）向けのスタイル */
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/* スマホ向けのスタイル */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
