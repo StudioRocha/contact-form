@@ -5,9 +5,7 @@
 /vendor
 .env
 .env.backup
-
-**/.env
-
+docker/mysql/data/  
 .phpunit.result.cache
 docker-compose.override.yml
 

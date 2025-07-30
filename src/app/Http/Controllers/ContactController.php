@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
+use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
@@ -11,7 +13,7 @@ class ContactController extends Controller
         return view('index');
     }
 
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
         // リクエストから必要なフィールド（name, email, tel, content）だけを取り出し、$contact に連想配列として格納
         $contact = $request->only(['name', 'email', 'tel', 'content']);
@@ -23,8 +25,13 @@ class ContactController extends Controller
         return view('confirm', compact('contact'));
     }
 
-    public function store()
+    public function store(ContactRequest $request)
     {
         // ここに処理を記述していきます。
+        $contact = $request->only(['name', 'email', 'tel', 'content']);
+        Contact::create($contact);
+        return view('thanks');
     }
+
+    
 }
